@@ -19,14 +19,14 @@ public class GimmickSystem : MonoBehaviour
     {
         f.SetActive(true);
         
-        int playerInput = 0;
-        int correctPassword = pcPassword;
+        string playerInput = f.GetComponent<InputField>().text;
+        string correctPassword = pcPassword.ToString();
 
         if (_controller.GetState() == SceneController.PlayerState.Cat)
         {
             if (playerInput == correctPassword)
             {
-                Debug.Log("解除！");
+                f.GetComponent<InputField>().text = "解除";
             }
             else
             {
@@ -35,9 +35,13 @@ public class GimmickSystem : MonoBehaviour
         }
     }
 
+    public void PCInputOnComplete()
+    {
+        
+    }
+
     public void MagazineGimmick()
     {
         _controller.items[0] = true;
-        Destroy(gameObject);
     }
 }
