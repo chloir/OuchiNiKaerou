@@ -37,25 +37,29 @@ public class SceneController : MonoBehaviour
     public void LeftOnClick()
     {
         // 左ボタン押下時の動作
-        bgPosition += WIDTH;
-        if (bgPosition < maxWidth)
-        {
-            bgPosition = minWidth;
-        }
-        var vec = new Vector2(bgPosition, 0);
-        bgImageParent.transform.localPosition = vec;
-    }
-
-    public void RightOnClick()
-    {
-        // 右ボタン押下時の動作
         bgPosition -= WIDTH;
-        if (bgPosition > minWidth)
+        if (bgPosition < minWidth)
         {
             bgPosition = maxWidth;
         }
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
+        
+        Debug.Log(bgPosition);
+    }
+
+    public void RightOnClick()
+    {
+        // 右ボタン押下時の動作
+        bgPosition += WIDTH;
+        if (bgPosition > maxWidth)
+        {
+            bgPosition = minWidth;
+        }
+        var vec = new Vector2(bgPosition, 0);
+        bgImageParent.transform.localPosition = vec;
+        
+        Debug.Log(bgPosition);
     }
 
     public PlayerState GetState()

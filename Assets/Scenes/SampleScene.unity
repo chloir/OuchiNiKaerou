@@ -2542,8 +2542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgImageParent: {fileID: 950916667}
   stateOnStart: 1
-  minWidth: 0
-  maxWidth: 5760
+  minWidth: -5760
+  maxWidth: 0
   items: 
 --- !u!4 &2021942236
 Transform:
