@@ -38,6 +38,6 @@ public class GimmickSystem : MonoBehaviour
     public void MagazineGimmick()
     {
         _controller.items[0] = true;
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

@@ -14,6 +14,7 @@ public class Item_menu : MonoBehaviour
             childTransform.gameObject.SetActive(false);
         }
         transform.Find("Item_memu_Text").gameObject.SetActive(true);
+        transform.Find("アイテムアイコン").gameObject.SetActive(true);
     }
 
     void Update()
