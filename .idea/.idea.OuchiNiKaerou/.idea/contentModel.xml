@@ -270,6 +270,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="GimmickSystem.cs" t="Include" />
+          <e p="Item_menu.cs" t="Include" />
           <e p="Messages.cs" t="Include" />
           <e p="MessageWindow.cs" t="Include" />
           <e p="MouseOver.cs" t="Include" />

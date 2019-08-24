@@ -19,11 +19,12 @@ public class SceneController : MonoBehaviour
     private static readonly int HEIGHT = 1080;
     [SerializeField] private GameObject bgImageParent = null;
     [SerializeField] private PlayerState stateOnStart = PlayerState.Cat;
-    [SerializeField] private int minWidth = 0;
-    [SerializeField] private int maxWidth = 5760;
+    [SerializeField] private int minWidth = -5760;
+    [SerializeField] private int maxWidth = 0;
     private PlayerState _state = PlayerState.Cat;
     private int bgPosition = 0;
     private Image[] bgImages = null;
+    public bool[] items;
 
     void Start()
     {
