@@ -31,13 +31,7 @@ public class SceneController : MonoBehaviour
         _state = stateOnStart;
         bgImages = bgImageParent.GetComponentsInChildren<Image>();
         
-        this.UpdateAsObservable()
-            .Where(_ =>
-            {
-                Ray ray = Camera.main.ScreenPointToRay();
-                RaycastHit hitInfo;
-                Physics.Raycast()
-            })
+
     }
 
     public void LeftOnClick()
