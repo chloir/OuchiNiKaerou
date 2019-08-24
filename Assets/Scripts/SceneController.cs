@@ -31,6 +31,13 @@ public class SceneController : MonoBehaviour
         _state = stateOnStart;
         bgImages = bgImageParent.GetComponentsInChildren<Image>();
         
+        this.UpdateAsObservable()
+            .Where(_ =>
+            {
+                Ray ray = Camera.main.ScreenPointToRay();
+                RaycastHit hitInfo;
+                Physics.Raycast()
+            })
     }
 
     public void LeftOnClick()
@@ -52,7 +59,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator BgScroller(int start, int end)
     {
-        
+        yield break;
     }
     
     void Update()
