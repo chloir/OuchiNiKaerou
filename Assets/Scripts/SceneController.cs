@@ -19,37 +19,42 @@ public class SceneController : MonoBehaviour
     private static readonly int HEIGHT = 1080;
     [SerializeField] private GameObject bgImageParent = null;
     [SerializeField] private PlayerState stateOnStart = PlayerState.Cat;
+    [SerializeField] private int minWidth = 0;
+    [SerializeField] private int maxWidth = 5760;
     private PlayerState _state = PlayerState.Cat;
-    private int bgPosition01 = 0;
-    private int bgPosition02 = 1920;
-    private int bgPosition03 = 3240;
-    private int bgPosition04 = 5760;
+    private int bgPosition = 0;
     private Image[] bgImages = null;
 
     void Start()
     {
-        _state = stateOnStart;
-        bgImages = bgImageParent.GetComponentsInChildren<Image>();
+        var bgPos = new Vector2(bgPosition, 0);
         
-        this.UpdateAsObservable()
-            .Where(_ =>
-            {
-                Ray ray = Camera.main.ScreenPointToRay();
-                RaycastHit hitInfo;
-                Physics.Raycast()
-            })
+        _state = stateOnStart;
+        bgImageParent.transform.position = bgPos;
     }
 
     public void LeftOnClick()
     {
         // 左ボタン押下時の動作
-        
+        bgPosition += WIDTH;
+        if (bgPosition < maxWidth)
+        {
+            bgPosition = minWidth;
+        }
+        var vec = new Vector2(bgPosition, 0);
+        bgImageParent.transform.localPosition = vec;
     }
 
     public void RightOnClick()
     {
         // 右ボタン押下時の動作
-        
+        bgPosition -= WIDTH;
+        if (bgPosition > minWidth)
+        {
+            bgPosition = maxWidth;
+        }
+        var vec = new Vector2(bgPosition, 0);
+        bgImageParent.transform.localPosition = vec;
     }
 
     public PlayerState GetState()

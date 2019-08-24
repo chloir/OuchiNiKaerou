@@ -272,6 +272,7 @@
           <e p="GimmickSystem.cs" t="Include" />
           <e p="Messages.cs" t="Include" />
           <e p="MessageWindow.cs" t="Include" />
+          <e p="MouseOver.cs" t="Include" />
           <e p="SceneController.cs" t="Include" />
         </e>
       </e>
