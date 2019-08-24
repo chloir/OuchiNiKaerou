@@ -37,10 +37,10 @@ public class SceneController : MonoBehaviour
     public void LeftOnClick()
     {
         // 左ボタン押下時の動作
-        bgPosition -= WIDTH;
-        if (bgPosition < minWidth)
+        bgPosition += WIDTH;
+        if (bgPosition > maxWidth)
         {
-            bgPosition = maxWidth;
+            bgPosition = minWidth;
         }
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
@@ -51,10 +51,10 @@ public class SceneController : MonoBehaviour
     public void RightOnClick()
     {
         // 右ボタン押下時の動作
-        bgPosition += WIDTH;
-        if (bgPosition > maxWidth)
+        bgPosition -= WIDTH;
+        if (bgPosition < minWidth)
         {
-            bgPosition = minWidth;
+            bgPosition = maxWidth;
         }
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
