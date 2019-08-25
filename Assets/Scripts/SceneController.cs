@@ -66,6 +66,21 @@ public class SceneController : MonoBehaviour
         Debug.Log(bgPosition);
     }
 
+    public void Dog()
+    {
+        _state = PlayerState.Dog;
+    }
+
+    public void Cat()
+    {
+        _state = PlayerState.Cat;
+    }
+
+    public void Loach()
+    {
+        _state = PlayerState.Cockloach;
+    }
+
     public void CharacterIconOnClick()
     {
         _state++;
