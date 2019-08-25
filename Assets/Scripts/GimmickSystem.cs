@@ -14,7 +14,6 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private string pcPassword = "01200218";
     [SerializeField] private string pcPassword2 = "skylight";
     [SerializeField] private GameObject loginScr = null;
-    [SerializeField] private GameObject loginScr2 = null;
     [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject connectScr = null;
     [SerializeField] private GameObject paperScr = null;
@@ -24,6 +23,7 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private Messages gokiMasterData = null;
     [SerializeField] private GameObject belowTvView = null;
     [SerializeField] private GameObject hikidashiScr = null;
+    [SerializeField] private GameObject ShiwaScr = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
     private bool pc2ndGimmickCompleted = false;
@@ -31,12 +31,12 @@ public class GimmickSystem : MonoBehaviour
     private void Start()
     {
         loginScr.SetActive(false);
-        loginScr2.SetActive(false);
         desktop.SetActive(false);
         belowTvView.SetActive(false);
         connectScr.SetActive(false);
         paperScr.SetActive(false);
         hikidashiScr.SetActive(false);
+        ShiwaScr.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -79,18 +79,7 @@ public class GimmickSystem : MonoBehaviour
             }
         }
     }
-
-    public void LoginEneter()
-    {
-        if (_controller.GetState() == SceneController.PlayerState.Cat)
-        {
-            Destroy(connectScr);
-            loginScr2.SetActive(true);
-
-        }
-    }
-
-
+    
     public void ConnectScrScript()
     {
         Destroy(connectScr);
@@ -128,7 +117,8 @@ public class GimmickSystem : MonoBehaviour
         if (_controller.GetState() == SceneController.PlayerState.Cat)
         {
             _controller.items[1] = true;
-            
+            window.ChangeMessage(catMasterData.messageTexts[7]);
+            ShiwaScr.SetActive(true);
         }
     }
 
@@ -206,6 +196,7 @@ public class GimmickSystem : MonoBehaviour
     {
         paperScr.SetActive(false);
         hikidashiScr.SetActive(false);
+        ShiwaScr.SetActive(false);
     }
 
     public void MagazineGimmick()
