@@ -15,10 +15,12 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private string pcPassword2 = "skylight";
     [SerializeField] private GameObject loginScr = null;
     [SerializeField] private GameObject desktop = null;
+    [SerializeField] private GameObject connectScr = null;
     [SerializeField] private GameObject magazineObject = null;
     [SerializeField] private Messages dogMasterData = null;
     [SerializeField] private Messages catMasterData = null;
     [SerializeField] private Messages gokiMasterData = null;
+    [SerializeField] private GameObject belowTvView = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
     private bool pc2ndGimmickCompleted = false;
@@ -27,6 +29,8 @@ public class GimmickSystem : MonoBehaviour
     {
         loginScr.SetActive(false);
         desktop.SetActive(false);
+        belowTvView.SetActive(false);
+        connectScr.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -35,6 +39,11 @@ public class GimmickSystem : MonoBehaviour
         {
             pcIsOn = true;
             window.PcOnMessage();
+        }
+
+        if (pcIsOn && _controller.GetState() == SceneController.PlayerState.Dog)
+        {
+            window.ChangeMessage(dogMasterData.messageTexts[3]);
         }
     }
     
@@ -56,7 +65,7 @@ public class GimmickSystem : MonoBehaviour
             if (playerInput == correctPassword)
             {
                 Destroy(loginScr);
-                desktop.SetActive(true);
+                connectScr.SetActive(true);
             }
             else
             {
@@ -65,9 +74,15 @@ public class GimmickSystem : MonoBehaviour
         }
     }
 
+    public void ConnectScrScript()
+    {
+        Destroy(connectScr);
+        desktop.SetActive(true);
+    }
+
     public void PcSecondGimmick()
     {
-        string playerInput = loginScr.GetComponentInChildren<InputField>().text;
+        string playerInput = desktop.GetComponentInChildren<InputField>().text;
         string correctPassword = pcPassword2;
         
 
@@ -88,6 +103,7 @@ public class GimmickSystem : MonoBehaviour
     {
         loginScr.SetActive(false);
         desktop.SetActive(false);
+        connectScr.SetActive(false);
     }
 
     public void BelowBed()
@@ -103,13 +119,13 @@ public class GimmickSystem : MonoBehaviour
         switch (_controller.GetState())
         {
             case SceneController.PlayerState.Dog:
-                window.ChangeMessage(dogMasterData.messageTexts[5]);
+                window.ChangeMessage(dogMasterData.messageTexts[9]);
                 break;
             case SceneController.PlayerState.Cat:
-                window.ChangeMessage(catMasterData.messageTexts[5]);
+                window.ChangeMessage(catMasterData.messageTexts[6]);
                 break;
             case SceneController.PlayerState.Cockloach:
-                window.ChangeMessage(gokiMasterData.messageTexts[5]);
+                window.ChangeMessage(gokiMasterData.messageTexts[9]);
                 break;
         }
     }
@@ -128,7 +144,7 @@ public class GimmickSystem : MonoBehaviour
                 window.ChangeMessage(catMasterData.messageTexts[3]);
                 break;
             case SceneController.PlayerState.Cockloach:
-                window.ChangeMessage(gokiMasterData.messageTexts[3]);
+                // window.ChangeMessage(gokiMasterData.messageTexts[3]);
                 break;
         }
     }
@@ -142,8 +158,13 @@ public class GimmickSystem : MonoBehaviour
     {
         if (_controller.GetState() == SceneController.PlayerState.Cockloach)
         {
-            
+            belowTvView.SetActive(true);
         }
+    }
+
+    public void ExitBelowTv()
+    {
+        belowTvView.SetActive(false);
     }
 
     public void PosterGimmick()
@@ -151,8 +172,10 @@ public class GimmickSystem : MonoBehaviour
         switch (_controller.GetState())
         {
             case SceneController.PlayerState.Dog:
+                window.ChangeMessage(dogMasterData.messageTexts[4]);
                 break;
             case SceneController.PlayerState.Cat:
+                window.ChangeMessage(catMasterData.messageTexts[4]);
                 break;
             case SceneController.PlayerState.Cockloach:
                 break;

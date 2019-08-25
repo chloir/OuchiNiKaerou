@@ -18,7 +18,6 @@ public class MessageWindow : MonoBehaviour
             .Subscribe(_ =>
             {
                 isInit = false;
-                messageText.text = messageMaster.messageTexts[0];
             });
     }
 

@@ -36,6 +36,8 @@ public class SceneController : MonoBehaviour
         bgImageParent.transform.position = bgPos;
     }
 
+    public int GetBgPos() { return bgPosition; }
+
     public void LeftOnClick()
     {
         // 左ボタン押下時の動作
