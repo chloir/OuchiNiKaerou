@@ -187,8 +187,10 @@ public class GimmickSystem : MonoBehaviour
         switch (_controller.GetState())
         {
             case SceneController.PlayerState.Dog:
+                window.ChangeMessage(dogMasterData.messageTexts[0]);
                 break;
             case SceneController.PlayerState.Cat:
+                window.ChangeMessage(catMasterData.messageTexts[11]);
                 break;
             case SceneController.PlayerState.Cockloach:
                 break;
