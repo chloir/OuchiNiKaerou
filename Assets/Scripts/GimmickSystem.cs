@@ -167,7 +167,7 @@ public class GimmickSystem : MonoBehaviour
 
     private void DogSideTableGimmick()
     {
-        
+        window.ChangeMessage(dogMasterData.messageTexts[7]);
     }
 
     public void BelowTV()
