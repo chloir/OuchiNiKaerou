@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Item_menu : MonoBehaviour
 {
+    [SerializeField] private SceneController _get_items;
     [SerializeField] private GameObject parentObject;
+    [SerializeField] private GameObject[] get_items; 
 
     private Transform []childobject;
     void Start()
@@ -27,6 +29,7 @@ public class Item_menu : MonoBehaviour
         if (!Item_Menu)
         {
             transform.Find("Item holder").gameObject.SetActive(true);
+
             Item_Menu = true;
         }
         else
