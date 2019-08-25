@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/escape.unity
     guid: 1b2177f227b221f4dac1b5560713cde4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/title.unity
     guid: 2c4ddfdd714ed0f4a9cdd6a21043a981
+  - enabled: 1
+    path: Assets/Scenes/prologue.unity
+    guid: 49e120864ae15a4468aa26772b8f9b7d
   m_configObjects: {}

@@ -12,6 +12,6 @@ public class TitleSceneController : MonoBehaviour
     {
         this.UpdateAsObservable()
             .Where(_ => Input.GetMouseButtonDown(0))
-            .Subscribe(_ => SceneManager.LoadScene("SampleScene"));
+            .Subscribe(_ => SceneManager.LoadScene("prologue"));
     }
 }
