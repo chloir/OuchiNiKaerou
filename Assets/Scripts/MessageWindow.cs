@@ -1,22 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MessageWindow : MonoBehaviour
 {
-    [SerializeField] private string message01 = "";
+    [SerializeField] private Messages messageMaster = null;
     private Text messageText = null;
+    private bool isInit = true;
 
-    // Start is called before the first frame update
     void Start()
     {
-        messageText = GetComponent<Text>();
+        messageText = GetComponentInChildren<Text>();
+
+        this.UpdateAsObservable()
+            .Where(_ => isInit)
+            .Subscribe(_ =>
+            {
+                isInit = false;
+                messageText.text = messageMaster.messageTexts[0];
+            });
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MessageWindowOnClick()
     {
-        
+        messageText.text = null;
+    }
+
+    public void PcOnMessage()
+    {
+        messageText.text = messageMaster.messageTexts[1];
     }
 }
