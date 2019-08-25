@@ -34,7 +34,6 @@ public class SceneController : MonoBehaviour
         _state = stateOnStart;
         characterImage.sprite = characterSprites[(int) _state];
         bgImageParent.transform.position = bgPos;
-
     }
 
     public void LeftOnClick()
@@ -48,6 +47,7 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
+        Debug.Log(bgPosition);
     }
 
     public void RightOnClick()
@@ -61,6 +61,7 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
+        Debug.Log(bgPosition);
     }
 
     public void CharacterIconOnClick()
