@@ -18,6 +18,7 @@ public class SceneController : MonoBehaviour
     private static readonly int HEIGHT = 1080;
     [SerializeField] private GameObject bgImageParent = null;
     [SerializeField] private PlayerState stateOnStart = PlayerState.Dog;
+    [SerializeField] private GameObject goki = null;
     [SerializeField] private int minWidth = -5760;
     [SerializeField] private int maxWidth = 0;
     [SerializeField] private Image characterImage = null;
@@ -49,6 +50,8 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
+        GokiRandom();
+        
         Debug.Log(bgPosition);
     }
 
@@ -63,7 +66,21 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
+        GokiRandom();
+        
         Debug.Log(bgPosition);
+    }
+
+    public void GokiRandom()
+    {
+        int c = 0;
+        if (c == 0)
+        {
+            var obj = Instantiate(goki); 
+            obj.transform.position = new Vector3(bgPosition + 1050, -146);
+            obj.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 0), ForceMode2D.Impulse);
+            Debug.Log("Goki");
+        }
     }
 
     public void Dog()
