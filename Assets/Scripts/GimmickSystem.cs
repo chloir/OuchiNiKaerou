@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -10,6 +12,7 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private SceneController _controller = null;
     [SerializeField] private MessageWindow window = null;
     [SerializeField] private int pcPassword = 01200218;
+    [SerializeField] private string pcPassword2 = "skylight";
     [SerializeField] private GameObject loginScr = null;
     [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject magazineObject = null;
@@ -18,6 +21,7 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private Messages gokiMasterData = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
+    private bool pc2ndGimmickCompleted = false;
 
     private void Start()
     {
@@ -51,6 +55,7 @@ public class GimmickSystem : MonoBehaviour
         {
             if (playerInput == correctPassword)
             {
+                Destroy(loginScr);
                 desktop.SetActive(true);
             }
             else
@@ -60,9 +65,29 @@ public class GimmickSystem : MonoBehaviour
         }
     }
 
+    public void PcSecondGimmick()
+    {
+        string playerInput = loginScr.GetComponentInChildren<InputField>().text;
+        string correctPassword = pcPassword2;
+        
+
+        if (pc1stGimmickCompleted)
+        {
+            if (_controller.GetState() == SceneController.PlayerState.Cat)
+            {
+                if (playerInput == correctPassword)
+                {
+                    Destroy(desktop);
+                    SceneManager.LoadScene("End");
+                }
+            }
+        }
+    }
+
     public void ReturnFromPc()
     {
         loginScr.SetActive(false);
+        desktop.SetActive(false);
     }
 
     public void BelowBed()
@@ -117,7 +142,7 @@ public class GimmickSystem : MonoBehaviour
     {
         if (_controller.GetState() == SceneController.PlayerState.Cockloach)
         {
-            // テレビ下
+            
         }
     }
 

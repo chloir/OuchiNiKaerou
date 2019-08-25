@@ -270,6 +270,11 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="アイコン・ＵＩ関係" t="Include">
+            <e p="memo.txt" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="BgController.cs" t="Include" />
           <e p="GimmickSystem.cs" t="Include" />
