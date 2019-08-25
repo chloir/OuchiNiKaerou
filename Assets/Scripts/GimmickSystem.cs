@@ -81,7 +81,6 @@ public class GimmickSystem : MonoBehaviour
         if (_controller.GetState() == SceneController.PlayerState.Dog)
         {
             _controller.items[0] = true;
-            Destroy(magazineObject);
         }
     }
 
