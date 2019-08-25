@@ -2376,16 +2376,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f204cf093d76f49aa9648abdd7bb938d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
   bgs:
   - {fileID: 153307031}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1935487569}
+  - {fileID: 1532071724}
+  - {fileID: 1598985374}
   bgSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: ef7748c8ed9da354b9ab5003e7cada39, type: 3}
+  - {fileID: 21300000, guid: ae8c3b224d19df745b94217c9bafcb54, type: 3}
+  - {fileID: 21300000, guid: 660f9137d41d09c4bb0f6180ef3ffb17, type: 3}
+  - {fileID: 21300000, guid: 5cafbfc8279b1e74ab1eb70784650053, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
