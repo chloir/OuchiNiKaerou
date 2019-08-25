@@ -22,6 +22,7 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private Messages catMasterData = null;
     [SerializeField] private Messages gokiMasterData = null;
     [SerializeField] private GameObject belowTvView = null;
+    [SerializeField] private GameObject hikidashiScr = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
     private bool pc2ndGimmickCompleted = false;
@@ -33,6 +34,7 @@ public class GimmickSystem : MonoBehaviour
         belowTvView.SetActive(false);
         connectScr.SetActive(false);
         paperScr.SetActive(false);
+        hikidashiScr.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -152,9 +154,10 @@ public class GimmickSystem : MonoBehaviour
         }
     }
 
-    private void DogSideTableGimmick()
+    public void DogSideTableGimmick()
     {
         window.ChangeMessage(dogMasterData.messageTexts[7]);
+        hikidashiScr.SetActive(true);
     }
 
     public void BelowTV()
@@ -189,6 +192,7 @@ public class GimmickSystem : MonoBehaviour
     public void close()
     {
         paperScr.SetActive(false);
+        hikidashiScr.SetActive(false);
     }
 
     public void MagazineGimmick()
