@@ -271,13 +271,14 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="BgController.cs" t="Include" />
           <e p="GimmickSystem.cs" t="Include" />
           <e p="Item_menu.cs" t="Include" />
           <e p="Messages.cs" t="Include" />
           <e p="MessageWindow.cs" t="Include" />
           <e p="MouseOver.cs" t="Include" />
           <e p="SceneController.cs" t="Include" />
-          <e p="Title.cs" t="Include" />
+          <e p="TitleSceneController.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

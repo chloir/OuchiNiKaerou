@@ -13,6 +13,7 @@ public class GimmickSystem : MonoBehaviour
     [FormerlySerializedAs("f")] [SerializeField] private GameObject pcGimmickInput = null;
     [SerializeField] private GameObject magazineObject = null;
     private bool pcIsOn = false;
+    private bool pc1stGimmickCompleted = false;
 
     private void Start()
     {
@@ -56,12 +57,36 @@ public class GimmickSystem : MonoBehaviour
 
     public void BelowBed()
     {
+        if (_controller.GetState() == SceneController.PlayerState.Cat)
+        {
+            // Getシワシワの紙
+        }
+    }
+
+    public void BelowTV()
+    {
+        if (_controller.GetState() == SceneController.PlayerState.Cockloach)
+        {
+            // テレビ下
+        }
+    }
+
+    public void PosterGimmick()
+    {
         
     }
 
     public void MagazineGimmick()
     {
-        _controller.items[0] = true;
-        Destroy(magazineObject);
+        if (_controller.GetState() == SceneController.PlayerState.Dog)
+        {
+            _controller.items[0] = true;
+            Destroy(magazineObject);
+        }
+    }
+
+    public bool GetPc1stGimmick()
+    {
+        return pc1stGimmickCompleted;
     }
 }
