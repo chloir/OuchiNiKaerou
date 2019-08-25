@@ -14,6 +14,7 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private string pcPassword = "01200218";
     [SerializeField] private string pcPassword2 = "skylight";
     [SerializeField] private GameObject loginScr = null;
+    [SerializeField] private GameObject loginScr2 = null;
     [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject connectScr = null;
     [SerializeField] private GameObject paperScr = null;
@@ -30,6 +31,7 @@ public class GimmickSystem : MonoBehaviour
     private void Start()
     {
         loginScr.SetActive(false);
+        loginScr2.SetActive(false);
         desktop.SetActive(false);
         belowTvView.SetActive(false);
         connectScr.SetActive(false);
@@ -77,6 +79,17 @@ public class GimmickSystem : MonoBehaviour
             }
         }
     }
+
+    public void LoginEneter()
+    {
+        if (_controller.GetState() == SceneController.PlayerState.Cat)
+        {
+            Destroy(connectScr);
+            loginScr2.SetActive(true);
+
+        }
+    }
+
 
     public void ConnectScrScript()
     {
