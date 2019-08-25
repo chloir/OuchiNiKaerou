@@ -24,7 +24,7 @@ public class SceneController : MonoBehaviour
     private PlayerState _state = PlayerState.Cat;
     private int bgPosition = 0;
     private Image[] bgImages = null;
-    public bool[] items;
+    public bool[] items = new bool[6];
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class SceneController : MonoBehaviour
         
         _state = stateOnStart;
         bgImageParent.transform.position = bgPos;
+
     }
 
     public void LeftOnClick()
@@ -45,7 +46,6 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
-        Debug.Log(bgPosition);
     }
 
     public void RightOnClick()
@@ -59,7 +59,6 @@ public class SceneController : MonoBehaviour
         var vec = new Vector2(bgPosition, 0);
         bgImageParent.transform.localPosition = vec;
         
-        Debug.Log(bgPosition);
     }
 
     public PlayerState GetState()

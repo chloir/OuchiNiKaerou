@@ -42,6 +42,9 @@ public class GimmickSystem : MonoBehaviour
 
     public void MagazineGimmick()
     {
+        GameObject Magazine = GameObject.Find("MagazineGimmick");
         _controller.items[0] = true;
+        if (_controller.items[0])Destroy(Magazine);
     }
+
 }
