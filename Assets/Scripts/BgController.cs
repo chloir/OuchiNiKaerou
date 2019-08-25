@@ -25,19 +25,26 @@ public class BgController : MonoBehaviour
                 {
                     case SceneController.PlayerState.Dog:
                         x = _controller.GetBgPos();
+                        y = 0;
                         bgImg.transform.localPosition = new Vector3(x, 0);
                         break;
                     case SceneController.PlayerState.Cat:
                         x = _controller.GetBgPos();
+                        y = 1080;
                         bgImg.transform.localPosition = new Vector3(x, 1080);
                         break;
                     case SceneController.PlayerState.Cockloach:
                         x = _controller.GetBgPos();
+                        y = 2160;
                         bgImg.transform.localPosition = new Vector3(x, 2160);
                         break;
                 }
             });
     }
+
+    public int Gety()
+    {
+        return y;}
 
     IEnumerator BgScroller(int start, int dest)
     {
