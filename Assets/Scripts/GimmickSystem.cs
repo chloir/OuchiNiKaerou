@@ -11,11 +11,12 @@ public class GimmickSystem : MonoBehaviour
 {
     [SerializeField] private SceneController _controller = null;
     [SerializeField] private MessageWindow window = null;
-    [SerializeField] private int pcPassword = 01200218;
+    [SerializeField] private string pcPassword = "01200218";
     [SerializeField] private string pcPassword2 = "skylight";
     [SerializeField] private GameObject loginScr = null;
     [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject connectScr = null;
+    [SerializeField] private GameObject paperScr = null;
     [SerializeField] private GameObject magazineObject = null;
     [SerializeField] private Messages dogMasterData = null;
     [SerializeField] private Messages catMasterData = null;
@@ -31,6 +32,7 @@ public class GimmickSystem : MonoBehaviour
         desktop.SetActive(false);
         belowTvView.SetActive(false);
         connectScr.SetActive(false);
+        paperScr.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -111,6 +113,7 @@ public class GimmickSystem : MonoBehaviour
         if (_controller.GetState() == SceneController.PlayerState.Cat)
         {
             _controller.items[1] = true;
+            
         }
     }
 
@@ -176,10 +179,16 @@ public class GimmickSystem : MonoBehaviour
                 break;
             case SceneController.PlayerState.Cat:
                 window.ChangeMessage(catMasterData.messageTexts[4]);
+                paperScr.SetActive(true);
                 break;
             case SceneController.PlayerState.Cockloach:
                 break;
         }
+    }
+
+    public void close()
+    {
+        paperScr.SetActive(false);
     }
 
     public void MagazineGimmick()

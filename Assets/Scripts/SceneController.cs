@@ -86,16 +86,19 @@ public class SceneController : MonoBehaviour
     public void Dog()
     {
         _state = PlayerState.Dog;
+        characterImage.sprite = characterSprites[(int) _state];
     }
 
     public void Cat()
     {
         _state = PlayerState.Cat;
+        characterImage.sprite = characterSprites[(int) _state];
     }
 
     public void Loach()
     {
         _state = PlayerState.Cockloach;
+        characterImage.sprite = characterSprites[(int) _state];
     }
 
     public void CharacterIconOnClick()
@@ -106,7 +109,7 @@ public class SceneController : MonoBehaviour
             _state = PlayerState.Dog;
         }
         
-        characterImage.sprite = characterSprites[(int) _state];
+
         Debug.Log(_state);
     }
 
