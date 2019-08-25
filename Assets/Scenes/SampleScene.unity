@@ -3172,6 +3172,7 @@ MonoBehaviour:
   _controller: {fileID: 2021942235}
   window: {fileID: 1007324425}
   pcPassword: 1200218
+  pcPassword2: skylight
   loginScr: {fileID: 38877391}
   desktop: {fileID: 529619858}
   magazineObject: {fileID: 0}
