@@ -13,8 +13,7 @@ public class Item_menu : MonoBehaviour
         {
             childTransform.gameObject.SetActive(false);
         }
-        transform.Find("Item_memu_Text").gameObject.SetActive(true);
-        transform.Find("アイテムアイコン").gameObject.SetActive(true);
+        transform.Find("ItemMenu").gameObject.SetActive(true);
     }
 
     void Update()
@@ -27,12 +26,12 @@ public class Item_menu : MonoBehaviour
     {
         if (!Item_Menu)
         {
-            transform.Find("ItemWindow").gameObject.SetActive(true);
+            transform.Find("Item holder").gameObject.SetActive(true);
             Item_Menu = true;
         }
         else
         {
-            transform.Find("ItemWindow").gameObject.SetActive(false);
+            transform.Find("Item holder").gameObject.SetActive(false);
             Item_Menu = false;
         }
     }
