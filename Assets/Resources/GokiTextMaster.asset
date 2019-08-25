@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a23e6bbc1978f4ebf8727ec344cdfa23, type: 3}
-  m_Name: TextMaster
+  m_Name: GokiTextMaster
   m_EditorClassIdentifier: 
   messageTexts:
-  - "\u30D7\u30ED\u30ED\u30FC\u30B0\u306E\u30C6\u30AD\u30B9\u30C8"
-  - "PC\u306E\u96FB\u6E90\u304C\u3064\u3044\u305F"
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - "\u30B4\u30AD\uFF11"
+  - "\u30B4\u30AD\uFF12"
+  - "\u30B4\u30AD\uFF13"
+  - "\u30B4\u30AD\uFF14"
+  - "\u30B4\u30AD\uFF15"
+  - "\u30B4\u30AD\uFF16"
+  - "\u30B4\u30AD\uFF17"
+  - "\u30B4\u30AD\uFF18"
+  - "\u30B4\u30AD\uFF19"
+  - "\u30B4\u30AD\uFF11\uFF10"

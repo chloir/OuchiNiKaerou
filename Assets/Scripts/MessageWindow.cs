@@ -22,6 +22,11 @@ public class MessageWindow : MonoBehaviour
             });
     }
 
+    public void ChangeMessage(string str)
+    {
+        messageText.text = str;
+    }
+
     public void MessageWindowOnClick()
     {
         messageText.text = null;

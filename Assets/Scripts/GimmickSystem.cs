@@ -13,12 +13,16 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private GameObject loginScr = null;
     [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject magazineObject = null;
+    [SerializeField] private Messages dogMasterData = null;
+    [SerializeField] private Messages catMasterData = null;
+    [SerializeField] private Messages gokiMasterData = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
 
     private void Start()
     {
         loginScr.SetActive(false);
+        desktop.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -65,8 +69,48 @@ public class GimmickSystem : MonoBehaviour
     {
         if (_controller.GetState() == SceneController.PlayerState.Cat)
         {
-            // Getシワシワの紙
+            _controller.items[1] = true;
         }
+    }
+
+    public void BedOnClick()
+    {
+        switch (_controller.GetState())
+        {
+            case SceneController.PlayerState.Dog:
+                window.ChangeMessage(dogMasterData.messageTexts[5]);
+                break;
+            case SceneController.PlayerState.Cat:
+                window.ChangeMessage(catMasterData.messageTexts[5]);
+                break;
+            case SceneController.PlayerState.Cockloach:
+                window.ChangeMessage(gokiMasterData.messageTexts[5]);
+                break;
+        }
+    }
+
+    public void SideTableOnClick()
+    {
+        switch (_controller.GetState())
+        {
+            case SceneController.PlayerState.Dog:
+                if (pc1stGimmickCompleted)
+                {
+                    DogSideTableGimmick();
+                }
+                break;
+            case SceneController.PlayerState.Cat:
+                window.ChangeMessage(catMasterData.messageTexts[3]);
+                break;
+            case SceneController.PlayerState.Cockloach:
+                window.ChangeMessage(gokiMasterData.messageTexts[3]);
+                break;
+        }
+    }
+
+    private void DogSideTableGimmick()
+    {
+        
     }
 
     public void BelowTV()
@@ -79,15 +123,27 @@ public class GimmickSystem : MonoBehaviour
 
     public void PosterGimmick()
     {
-        
+        switch (_controller.GetState())
+        {
+            case SceneController.PlayerState.Dog:
+                break;
+            case SceneController.PlayerState.Cat:
+                break;
+            case SceneController.PlayerState.Cockloach:
+                break;
+        }
     }
 
     public void MagazineGimmick()
     {
-        if (_controller.GetState() == SceneController.PlayerState.Dog)
+        switch (_controller.GetState())
         {
-            _controller.items[0] = true;
-            Destroy(magazineObject);
+            case SceneController.PlayerState.Dog:
+                break;
+            case SceneController.PlayerState.Cat:
+                break;
+            case SceneController.PlayerState.Cockloach:
+                break;
         }
     }
 
