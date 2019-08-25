@@ -10,14 +10,15 @@ public class GimmickSystem : MonoBehaviour
     [SerializeField] private SceneController _controller = null;
     [SerializeField] private MessageWindow window = null;
     [SerializeField] private int pcPassword = 01200218;
-    [FormerlySerializedAs("f")] [SerializeField] private GameObject pcGimmickInput = null;
+    [SerializeField] private GameObject loginScr = null;
+    [SerializeField] private GameObject desktop = null;
     [SerializeField] private GameObject magazineObject = null;
     private bool pcIsOn = false;
     private bool pc1stGimmickCompleted = false;
 
     private void Start()
     {
-        pcGimmickInput.SetActive(false);
+        loginScr.SetActive(false);
     }
 
     public void PCPowerOn()
@@ -33,26 +34,31 @@ public class GimmickSystem : MonoBehaviour
     {
         if (_controller.GetState() == SceneController.PlayerState.Cat && pcIsOn)
         {
-            pcGimmickInput.SetActive(true);
+            loginScr.SetActive(true);
         }
     }
 
     public void PCInputOnComplete()
     {
-        string playerInput = pcGimmickInput.GetComponent<InputField>().text;
+        string playerInput = loginScr.GetComponentInChildren<InputField>().text;
         string correctPassword = pcPassword.ToString();
         
         if (_controller.GetState() == SceneController.PlayerState.Cat)
         {
             if (playerInput == correctPassword)
             {
-                pcGimmickInput.GetComponent<InputField>().text = "解除";
+                desktop.SetActive(true);
             }
             else
             {
-                pcGimmickInput.GetComponent<InputField>().text = "違う";
+                loginScr.GetComponentInChildren<InputField>().text = "違う";
             }
         }
+    }
+
+    public void ReturnFromPc()
+    {
+        loginScr.SetActive(false);
     }
 
     public void BelowBed()
