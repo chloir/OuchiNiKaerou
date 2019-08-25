@@ -11,7 +11,6 @@ public class SceneController : MonoBehaviour
     {
         Dog,
         Cat,
-        Alien,
         Cockloach
     }
     
@@ -21,16 +20,19 @@ public class SceneController : MonoBehaviour
     [SerializeField] private PlayerState stateOnStart = PlayerState.Cat;
     [SerializeField] private int minWidth = -5760;
     [SerializeField] private int maxWidth = 0;
+    [SerializeField] private Image characterImage = null;
+    [SerializeField] private Sprite[] characterSprites = new Sprite[3];
     private PlayerState _state = PlayerState.Cat;
     private int bgPosition = 0;
     private Image[] bgImages = null;
-    public bool[] items;
+    public bool[] items = new bool[6];
 
     void Start()
     {
         var bgPos = new Vector2(bgPosition, 0);
         
         _state = stateOnStart;
+        characterImage.sprite = characterSprites[(int) _state];
         bgImageParent.transform.position = bgPos;
     }
 
@@ -60,6 +62,22 @@ public class SceneController : MonoBehaviour
         bgImageParent.transform.localPosition = vec;
         
         Debug.Log(bgPosition);
+    }
+
+    public void CharacterIconOnClick()
+    {
+        _state++;
+        if ((int)_state < 0)
+        {
+            _state = PlayerState.Cockloach;
+        }
+
+        if ((int)_state > 2)
+        {
+            _state = PlayerState.Cat;
+        }
+        
+        characterImage.sprite = characterSprites[(int) _state];
     }
 
     public PlayerState GetState()

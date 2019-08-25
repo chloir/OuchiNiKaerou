@@ -40,6 +40,11 @@ public class GimmickSystem : MonoBehaviour
         
     }
 
+    public void BelowBed()
+    {
+        
+    }
+
     public void MagazineGimmick()
     {
         _controller.items[0] = true;
